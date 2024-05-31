@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>chatbot</title>
+</head>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+    body {
+        background-image: url('img/bg.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        font-family: 'Poppins', sans-serif;
+        background-color: #ECF2FF;
+        letter-spacing: 0.7px;
+    }
+
+    .container {
+        text-align: center;
+        margin-top: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 30px;
+        border-radius: 10px;
+        transition: all 0.5;
+    }
+
+    img {
+        width: 10%;
+    }
+
+    h1, h2, p {
+        color: white;
+    }
+
+    .btn{
+        text-align: center;
+    }
+
+    .btn-student {
+        padding: 20px;
+        width: 10%;
+        border-style: none;
+        border-radius: 20px;
+        font-size: 20px;
+        margin: 20px;
+        background-color: #2C4E80;
+        color: white;
+        cursor: pointer;
+    }
+
+    .btn-admin {
+        padding: 20px;
+        width: 10%;
+        border-style: none;
+        border-radius: 20px;
+        font-size: 20px;
+        margin: 20px;
+        background-color: #655DBB;
+        color: white;
+        cursor: pointer;
+    }
+
+    .btn-admin:hover, .btn-student:hover {
+       color: rgb(230, 152, 17);
+    }
+
+    @media screen and (max-width:700px){
+
+        .btn-student {
+            width: 20%;
+            font-size: 12px;
+        }
+
+        .btn-admin {
+            width: 20%;
+            font-size: 12px;
+        }
+
+        img {
+            width: 40%;
+        }
+
+        .container {
+            font-size: 14px;
+        }
+    }
+
+</style>
+
+<body>
+
+    <div class="container">
+        <img src="/img/logo-2.png">
+        <h2>Welcome to</h2>
+        <h1>UniBOT</h1>
+        <h2>UNIKL MIIT Customer Service Chatbot System</h2>
+        <p>Work Smart | Save Time | Save Energy | Instant Respond | Less Stress</p>
+    </div>
+
+    <div class="btn">
+        <button class="btn-student" onclick="goToLogin('student')">Student</button>
+        <button class="btn-admin" onclick="goToLogin('admin')">Admin</button>
+    </div>
+
+    <script>
+        function goToLogin(userType) {
+            if (userType === 'student') {
+                window.location.href = 'student/Login.html';
+            } else if (userType === 'admin') {
+                window.location.href = 'Admin/Login_admin.html';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
