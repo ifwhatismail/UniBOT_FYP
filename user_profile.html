@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Dashboard</title>
 </head>
@@ -14,23 +14,51 @@
         width: 150px;
     }
 
+    .container-profile {
+        padding: 30px;
+        border-radius: 10px;
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: auto;
+    }
+
+    @media screen and (max-width: 600px) {
+        .content {
+            margin-left: 120px;
+            margin-top: -11px;
+        }
+
+        .container-profile{
+            font-size: 12px;
+        }
+
+        label.lblProfile {
+            width: 90px;
+        }
+        
+    }
+
 
 </style>
 
 <body>
 
     <header>
-       <h1>UniBOT</h1>
+       <h1>Profile</h1>
     </header>
     <!--Navigation Bar-->
     <div class="sidebar">
-        <img class="unikl-logo" src="logo-01.png">
+        <img class="unikl-logo" src="/img/logo-01.png">
         <img class="profile-img-2" alt="profile" id="profilePic-2">
         <div class="name-id">
             <p><span id="userName-2"></span></p>
             <p><span id="userStudid-2"></span></p>
         </div>
-        <hr>
+        <hr class="hr-sidebar">
         <a href="dashboard.html"><i class="fa fa-comments" aria-hidden="true"></i><label class="sidebar-title">ChatBOT</label></a>
         <a href="user_profile.html"><i class="fa fa-address-card" aria-hidden="true"></i><label class="sidebar-title">Profile</label></a>
         <a href="history.html"><i class="fa fa-history" aria-hidden="true"></i><label class="sidebar-title">chat history</label></a>
@@ -39,8 +67,7 @@
     </div>
     <div class="content">
         <!--Student info-->
-        <div class="container">
-
+        <div class="container-profile">
             <h2 style="text-align: center;">Student Information</h2>
             <center><img class="profile-img" alt="profile" id="profilePic"></center>
             <br>
@@ -53,7 +80,6 @@
                 <p><b><label class="lblProfile">Phone:</label></b> <span id="phone"></span></p>
                 <p><b><label class="lblProfile">Gender:</label></b> <span id="userGender"></span></p>
                 <p><b><label class="lblProfile">Last Login:</label></b> <span id="lastLogin"></span></p>
-                <!-- Add other user information as needed -->
             </div>
 
             <hr>
