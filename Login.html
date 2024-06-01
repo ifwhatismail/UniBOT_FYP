@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <style>
@@ -24,33 +24,49 @@
         transition: .5s;
     }
 
-    .container-info {
-        padding: 10px;
-        background-color: #9BB0C1;
-        color: white;
-        width: 50%;
+    .container-login {
+        padding: 30px;
+        border-radius: 10px;
+        background-color: white;
         margin-left: auto;
         margin-right: auto;
         margin-top: 10px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
     }
+
+    @media screen and (max-width: 600px) {
+        .content {
+            margin-left: 120px;
+            margin-top: -11px;
+        }
+
+        .container-login {
+            font-size: 12px;
+            width: 80%;
+        }
+
+        header {
+            height: 90px;
+        }
+
+        
+    }
+
 </style>
 
 <body>
     <!--Navigation Bar-->
     <header>
-        <img class="unikl-logo" src="logo-01.png"><br>
+        <img class="unikl-logo" src="/img/logo-01.png"><br>
         <a href="Register.html">Register</a>
-        <a href="welcome.html">Home</a>
+        <a href="/welcome.html">Home</a>
     </header>
 
     <!--Form-->
     <div class="container-login">
         <center>
             <h1>Login</h1>
-          
         </center>
 
         <hr>
