@@ -251,195 +251,37 @@ i {
 
 @media screen and (max-width: 600px) {
 
-    body {
-        overflow: auto;
-        overflow-x: hidden;
-    }
-
-    .content {
-        width: 100%;
-        height: 100%;
-        margin-right: 0%;
-    }
-
-    header {
-        width: 100%;
-        height: 80px;
-        text-align: center;
-        position: fixed;
-        top: 0;
-    }
-
-    #myChart {
-        width: 100%;
-        height: "200";
-    }
-
-    .chart-container {
-        flex: 1;
-        margin-left: auto;
-        margin-right: auto;
-        height: 50vh;
-    }
-
-    .chatbot-container {
-        width: 100%;
-        position: fixed;
-    }
-
-    .bot-header {
-        border-radius: 0%;
-        width: 100%;
-        position: fixed;
-        margin-top: 30%;
-    }
-
-    .chatbox {
-        overflow-y: scroll;
-        width: 100%;
-        position: fixed;
-        margin-top: 45%;
-    }
-
-    #userInput {
-        border-radius: 0%;
-        width: 100%;
-        bottom: 70px;
-        position: fixed;
-    }
-
-    .Container-select {
-        border-radius: 0%;
-        bottom: 0;
-        width: 100%;
-        position: fixed;
-    }
-
-    #SelectQuery {
-        border-style: none;
-        border-radius: 10px;
-        width: 80%;
-        text-align: center;
-        background-color: #eff1f6;
-        color: rgb(137, 134, 134);
-    }
-
-    #SearchQuery {
-        width: 75%;
-    }
-
-    .container {
-        width: 80%;
-    }
-
-    .container-login {
-        padding: 20px;
-        width: 100%;
-        height: 100%;
-        border-radius: 0%;
-        font-size: 12px;
-        margin-top: 20%;
-        position: fixed;
-        overflow-y: scroll;
-    }
-
-    input[type=text],
-    input[type=password],
-    input[type=email] {
-        width: 86%;
-        padding: 12px;
-    }
-
-    input[type=submit] {
-        font-size: 12px;
-        padding: 16px 20px;
-        width: 94%;
-    }
-
-    .container-register {
-        width: 100%;
-        height: 80%;
-        border-radius: 0%;
-        font-size: 12px;
-        position: fixed;
-        margin-top: 20%;
-        overflow-y: scroll;
-    }
-
-    .container-register input[type=submit].register-btn {
-        width: 90%;
-    }
-
-    .container-register.signin {
-        text-align: center;
-    }
-
-    .container-info {
-
-        border-radius: 0%;
-        width: 100%;
-        top: 6vh;
-        font-size: 12px;
-        padding: 0%;
-    }
-
-    .container-history {
-        width: 80%;
-        overflow-y: auto;
-        font-size: 12px;
-    }
-
-    .container-1,
-    .container-2,
-    .container-3 {
-        font-size: 12px;
-        width: 80%;
-    }
-
-
     .sidebar {
-        position: fixed;
-        width: 100%;
-        height: 56px;
+        width: 25%;
         text-align: center;
-        display: inline-flex;
-        margin-top: 19%;
+        font-size: 13px;
+        left: 0;
     }
 
     .sidebar i {
-        font-size: 25px;
-        width: 20px;
-        flex: 1;
-        text-align: center;
-    }
-
-
-    label.sidebar-title {
         display: none;
     }
 
     .unikl-logo {
-        display: none;
-    }
-
-    #userAdminName-2,
-    #userAdminid-2,
-    #userName-2,
-    #userStudid-2 {
-        display: none;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90px;
     }
 
     .profile-img-2 {
-        display: inline-flex;
-        width: 60px;
-        height: 60px;
-        margin-left: 20px;
-        display: none;
+        border-radius: 50%;
+        height: 70px;
+        width: 70px;
     }
 
-    .hr-sidebar {
-        display: none;
+    .name-id {
+        font-size: 13px;
     }
 
+    header {
+        height: 50px;
+        font-size: 12px;
+        top: 0;
+    }
 
 }
