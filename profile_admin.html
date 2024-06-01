@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Dashboard</title>
@@ -18,6 +18,34 @@
     .userInfo {
         justify-content: center;
     }
+
+    .container-profile {
+        padding: 30px;
+        border-radius: 10px;
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: auto;
+    }
+
+    @media screen and (max-width: 600px) {
+        .content {
+            margin-left: 120px;
+            margin-top: -11px;
+        }
+
+        .container-profile{
+            font-size: 12px;
+        }
+
+        label.lblProfile {
+            width: 90px;
+        }
+        
+    }
 </style>
 
 <body>
@@ -27,7 +55,7 @@
 
     <!--Navigation Bar-->
     <div class="sidebar">
-        <img class="unikl-logo" src="logo-01.png">
+        <img class="unikl-logo" src="/img/logo-01.png">
         <img class="profile-img-2" alt="profile" id="profilePic-2">
         <div class="name-id">
             <p><span id="userAdminName-2"></span></p>
@@ -45,7 +73,7 @@
 
     <div class="content">
         <!--Student info-->
-        <div class="container">
+        <div class="container-profile">
 
             <h2 style="text-align: center;">Admin Information</h2>
             <center><img class="profile-img" alt="profile" id="profilePic"></center>
