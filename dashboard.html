@@ -121,7 +121,6 @@
         margin-left: 5px;
     }
 
-   
 </style>
 
 <body>
@@ -136,7 +135,7 @@
             <p><span id="userName-2"></span></p>
             <p><span id="userStudid-2"></span></p>
         </div>
-        <hr>
+        <hr class="hr-sidebar">
         <a href="dashboard.html"><i class="fa fa-comments" aria-hidden="true"></i><label
                 class="sidebar-title">ChatBOT</label></a>
         <a href="user_profile.html"><i class="fa fa-address-card" aria-hidden="true"></i><label
@@ -152,6 +151,7 @@
 
     <div class="content">
         <!-- CHAT BAR BLOCK -->
+        <div class="chatbot-container">
             <div class="bot-header">
                 <center>
                     <img src="chat.png" style="width: 50px; display: inline-block; vertical-align: middle;">
@@ -159,15 +159,14 @@
                     <span class="online-dot"></span>
                 </center>
             </div>
-
             <div class="chatbox">
                 <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
                 <div id="ResponseOutput"></div>
             </div>
-
+        
             <div id="userInput">
-                <input type="text" id="SearchQuery" placeholder="Type / Search Your Question here"
-                    onkeyup="filterQueries()" onblur="hideDropdown()">
+                <input type="text" id="SearchQuery" placeholder="Type / Search Your Question here" onkeyup="filterQueries()"
+                    onblur="hideDropdown()">
                 <button id="sendButton">send</button>
             </div>
             <div class="Container-select">
@@ -175,6 +174,7 @@
                     <option value="" selected>Query</option>
                 </select>
             </div>
+        </div>
     </div>
 
 </body>
