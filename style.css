@@ -7,7 +7,7 @@ body {
     letter-spacing: 0.7px;
     margin: 0;
     padding: 0;
-    color:#585454;
+    color: #585454;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -34,7 +34,7 @@ body {
     padding: 16px;
     text-decoration: none;
 }
-    
+
 
 .sidebar a:hover:not(.active) {
     background-color: #555;
@@ -72,7 +72,7 @@ header a {
     color: white;
 }
 
-  
+
 /* Add padding to containers */
 .container {
     padding: 30px;
@@ -116,7 +116,8 @@ header a {
     border-radius: 50%;
     height: 150px;
     width: 150px;
-    object-fit: cover; /* Ensures the image covers the entire container */
+    object-fit: cover;
+    /* Ensures the image covers the entire container */
     border-style: none;
 }
 
@@ -129,12 +130,15 @@ header a {
     border-radius: 50%;
     height: 100px;
     width: 100px;
-    object-fit: cover; /* Ensures the image covers the entire container */
+    object-fit: cover;
+    /* Ensures the image covers the entire container */
     border-style: none;
 }
-  
+
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=email] {
+input[type=text],
+input[type=password],
+input[type=email] {
     width: 95%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -146,7 +150,7 @@ input[type=text], input[type=password], input[type=email] {
     font-family: 'Poppins', sans-serif;
 }
 
-input[type=reset]{
+input[type=reset] {
     background-color: #e7822f;
     color: white;
     border-style: none;
@@ -154,21 +158,24 @@ input[type=reset]{
     height: 25px;
     cursor: pointer;
 }
-input[type=reset]:hover{
+
+input[type=reset]:hover {
     background-color: #f79f58;
 }
-  
-input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus {
     background-color: #ddd;
     outline: none;
 }
-  
+
 /* Overwrite default styles of hr */
 hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
 }
-  
+
 /* Set a style for the submit button */
 input[type=submit] {
     background-color: #655DBB;
@@ -183,23 +190,23 @@ input[type=submit] {
     letter-spacing: 1.5px;
     font-family: 'Poppins', sans-serif;
 }
-  
+
 input[type=submit]:hover {
     opacity: 1;
 }
-  
+
 /* Add a blue text color to links */
 a {
     color: dodgerblue;
     text-decoration: none;
 }
-  
+
 /* Set a grey background color and center the text of the "sign in" section */
 .signin {
     text-align: center;
 }
 
-.edit-btn{
+.edit-btn {
     border-style: none;
     padding: 5px 10px 5px 10px;
     background-color: rgb(77, 182, 252);
@@ -208,7 +215,7 @@ a {
     border-radius: 10px;
 }
 
-.edit-btn a{
+.edit-btn a {
     color: white;
 }
 
@@ -242,26 +249,24 @@ i {
 }
 
 
-@media screen and  (max-width: 700px) {
+@media screen and (max-width: 600px) {
 
-    body{
+    body {
         overflow: auto;
         overflow-x: hidden;
     }
+
     .content {
         width: 100%;
         height: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 10%;
-        margin-bottom: auto;
+        margin-right: 0%;
     }
 
     header {
         width: 100%;
         height: 80px;
         text-align: center;
-        position: sticky;
+        position: fixed;
         top: 0;
     }
 
@@ -269,6 +274,7 @@ i {
         width: 100%;
         height: "200";
     }
+
     .chart-container {
         flex: 1;
         margin-left: auto;
@@ -276,98 +282,88 @@ i {
         height: 50vh;
     }
 
+    .chatbot-container {
+        width: 100%;
+        position: fixed;
+    }
+
     .bot-header {
         border-radius: 0%;
-        width: 80%;
+        width: 100%;
+        position: fixed;
+        margin-top: 30%;
     }
 
     .chatbox {
-        overflow-y:scroll;
-        height: 57vh;
-        width: 80%;
+        overflow-y: scroll;
+        width: 100%;
+        position: fixed;
+        margin-top: 45%;
     }
 
     #userInput {
         border-radius: 0%;
-        width: 80%;
-        bottom: 11vh;
+        width: 100%;
+        bottom: 70px;
+        position: fixed;
     }
 
     .Container-select {
-        margin-bottom: auto;
         border-radius: 0%;
         bottom: 0;
-        width: 80%;
+        width: 100%;
+        position: fixed;
     }
 
     #SelectQuery {
         border-style: none;
         border-radius: 10px;
-        width: 71%;
+        width: 80%;
         text-align: center;
         background-color: #eff1f6;
         color: rgb(137, 134, 134);
     }
 
-     #SearchQuery {
-        width: 65%;
-     }
-
-   
-
-    
+    #SearchQuery {
+        width: 75%;
+    }
 
     .container {
         width: 80%;
     }
 
     .container-login {
-        padding: 10px;
-        top: 17vh;
-        background-color: white;
+        padding: 20px;
         width: 100%;
         height: 100%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 0%;
         font-size: 12px;
+        margin-top: 20%;
+        position: fixed;
+        overflow-y: scroll;
     }
 
-    input[type=text], input[type=password], input[type=email] {
-        width: 90%;
-        padding: 15px;
-        display: inline-block;
-        border: none;
-        background: #f1f1f1;
-        border-radius: 10px;
-        letter-spacing: 1px;
+    input[type=text],
+    input[type=password],
+    input[type=email] {
+        width: 86%;
+        padding: 12px;
     }
 
     input[type=submit] {
-        background-color: #655DBB;
         font-size: 12px;
-        color: white;
         padding: 16px 20px;
-        border: none;
-        cursor: pointer;
         width: 94%;
-        border-radius: 10px;
-        letter-spacing: 1.5px;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .container-register {
-        padding-left: 10px;
-        padding-right: 10px;
-        background-color: white;
         width: 100%;
-        height: 100%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        height: 80%;
         border-radius: 0%;
         font-size: 12px;
         position: fixed;
-        top: 61px;
+        margin-top: 20%;
+        overflow-y: scroll;
     }
 
     .container-register input[type=submit].register-btn {
@@ -393,7 +389,9 @@ i {
         font-size: 12px;
     }
 
-    .container-1,.container-2,.container-3 {
+    .container-1,
+    .container-2,
+    .container-3 {
         font-size: 12px;
         width: 80%;
     }
@@ -402,17 +400,13 @@ i {
     .sidebar {
         position: fixed;
         width: 100%;
-        height: 56px;      
+        height: 56px;
         text-align: center;
         display: inline-flex;
-        top: 9vh;
+        margin-top: 19%;
     }
 
-    hr {
-        display: none;
-    }
-
-    .sidebar  i{
+    .sidebar i {
         font-size: 25px;
         width: 20px;
         flex: 1;
@@ -424,15 +418,18 @@ i {
         display: none;
     }
 
-    .unikl-logo{
+    .unikl-logo {
         display: none;
     }
 
-    #userAdminName-2, #userAdminid-2, #userName-2, #userStudid-2  {
+    #userAdminName-2,
+    #userAdminid-2,
+    #userName-2,
+    #userStudid-2 {
         display: none;
     }
 
-    .profile-img-2{
+    .profile-img-2 {
         display: inline-flex;
         width: 60px;
         height: 60px;
@@ -440,10 +437,9 @@ i {
         display: none;
     }
 
-    
+    .hr-sidebar {
+        display: none;
+    }
+
+
 }
-
-
-
-
-
