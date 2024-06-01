@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/chat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Profile</title>
@@ -12,14 +12,14 @@
 <style>
     .container-history {
         padding: 30px;
+        border-radius: 10px;
         background-color: white;
         margin-left: auto;
         margin-right: auto;
         margin-top: 10px;
         margin-bottom: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        width: 90%;
-        border-radius: 10px;
+        overflow: auto;
     }
 
     table {
@@ -44,29 +44,41 @@
         background-color: #ECF2FF;
     }
 
+    @media screen and (max-width: 600px) {
+        .content {
+            margin-left: 120px;
+            margin-top: -11px;
+        }
+
+        .container-history {
+            font-size: 12px;
+        }
+
+        
+    }
+
 </style>
 
 <body>
     <!--Header-->
     <header>
-       <h1>UniBOT</h1>
+       <h1>History</h1>
     </header>
 
     <!--Navigation Bar-->
     <div class="sidebar">
-        <img class="unikl-logo" src="logo-01.png">
+        <img class="unikl-logo" src="/img/logo-01.png">
         <img class="profile-img-2" alt="profile" id="profilePic-2">
         <div class="name-id">
             <p><span id="userName-2"></span></p>
             <p><span id="userStudid-2"></span></p>
         </div>
-        <hr>
+        <hr class="hr-sidebar">
         <a href="dashboard.html"><i class="fa fa-comments" aria-hidden="true"></i><label class="sidebar-title">ChatBOT</label></a>
         <a href="user_profile.html"><i class="fa fa-address-card" aria-hidden="true"></i><label class="sidebar-title">Profile</label></a>
         <a href="history.html"><i class="fa fa-history" aria-hidden="true"></i><label class="sidebar-title">chat history</label></a>
         <a href="status.html"><i class="fa fa-envelope" aria-hidden="true"></i><label class="sidebar-title">Status</label></a>
         <a id="signout"><i class="fa fa-sign-out" aria-hidden="true"></i><label class="sidebar-title">Log Out</label></a>
-
     </div>
 
     <div class="content">
@@ -89,6 +101,7 @@
             </table>
 
         </div>
+
     </div>
 </body>
 
