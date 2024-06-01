@@ -4,36 +4,73 @@
 <head>
     <title>Edit Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
+<style>
+    .container-edit {
+        padding: 30px;
+        border-radius: 10px;
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    @media screen and (max-width: 600px) {
+        .content {
+            margin-left: 120px;
+            margin-top: -1px;
+        }
+
+        .container-edit {
+            font-size: 12px;
+        }
+    }
+</style>
+
 <body>
-    <div class="container">
-        <div id="editForm">
-            <!-- Add your edit form fields here -->
-            <label for="editAdminName">Name:</label><br>
-            <input type="text" id="editAdminName"> <br>
+    <!--Header-->
+    <header>
+        <h1>Edit Profile</h1>
+    </header>
 
-            <label for="editAdminid">Admin ID:</label><br>
-            <input type="text" id="editAdminid"><br>
+    <!--Navigation Bar-->
+    <div class="sidebar">
+       
+    </div>
 
-            <label for="editAdminEmail">Email:</label><br>
-            <input type="text" id="editAdminEmail"><br>
-
-            <label for="editAdminPhone">Phone:</label><br>
-            <input type="text" id="editAdminPhone"><br>
-
-            <label for="studid"><b>Gender</b></label>
-            <input type="radio" name="gender" id="Male" value="Male"> Male
-            <input type="radio" name="gender" id="Female" value="Female" required> Female <br><br>
-
-            <label for="profilePicture"><b>Profile Picture</b></label><br>
-            <input type="file" accept="image/*" name="profilePicture" id="profilePicture"><br><br>
-
-            <button id="updateBtn" class="update-btn">Update</button>
-            <button class="cancel-btn"><a href="profile_admin.html" style="text-decoration: none;">Cancel</a></button>
+    <div class="content">
+        <div class="container-edit">
+            <div id="editForm">
+                <!-- Add your edit form fields here -->
+                <label for="editAdminName">Name:</label><br>
+                <input type="text" id="editAdminName"> <br>
+    
+                <label for="editAdminid">Admin ID:</label><br>
+                <input type="text" id="editAdminid"><br>
+    
+                <label for="editAdminEmail">Email:</label><br>
+                <input type="text" id="editAdminEmail"><br>
+    
+                <label for="editAdminPhone">Phone:</label><br>
+                <input type="text" id="editAdminPhone"><br>
+    
+                <label for="studid"><b>Gender</b></label>
+                <input type="radio" name="gender" id="Male" value="Male"> Male
+                <input type="radio" name="gender" id="Female" value="Female" required> Female <br><br>
+    
+                <label for="profilePicture"><b>Profile Picture</b></label><br>
+                <input type="file" accept="image/*" name="profilePicture" id="profilePicture"><br><br>
+    
+                <button id="updateBtn" class="update-btn">Update</button>
+                <button class="cancel-btn"><a href="profile_admin.html" style="text-decoration: none;">Cancel</a></button>
+            </div>
         </div>
     </div>
+    
 </body>
 
 </html>
