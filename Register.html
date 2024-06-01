@@ -3,7 +3,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
   <link rel="" href="Register.php">
   <title>Sign Up</title>
 </head>
@@ -19,12 +19,30 @@
         color: #9BB0C1;
         transition: .5s;
     }
+
+    @media screen and (max-width: 600px) {
+        .content {
+            margin-left: 120px;
+            margin-top: -11px;
+        }
+
+        .container-register {
+            font-size: 12px;
+            width: 80%;
+        }
+
+        header {
+            height: 90px;
+        } 
+    }
+
+
 </style>
 
 <body>
   <!--Navigation Bar-->
     <header>
-      <img class="unikl-logo" src="logo-01.png"><br>
+      <img class="unikl-logo" src="/img/logo-01.png"><br>
       <a href="Login.html">Back</a>
     </header>
 
@@ -52,7 +70,7 @@
     <label for="password"><b>Password</b></label><br>
     <input type="password" placeholder="Enter Password" name="password" id="password" required>
     <span id="passwordError" style="color: red;"></span>
-
+    <br>
     <label for="profilePicture"><b>Profile Picture</b></label><br>
     <input type="file" accept="image/*" name="profilePicture" id="profilePicture" required><br>
 
