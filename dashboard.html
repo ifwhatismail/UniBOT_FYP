@@ -105,8 +105,9 @@
         font-size: 16px;
         text-align: center;
         margin-left: 2%;
-        display: inline-block;
+        display: none;
     }
+
 
     #SearchQuery {
         display: inline-block;
@@ -145,7 +146,11 @@
         }
         #SearchQuery {
             display: inline-block;
-            width: 70%;
+            width: 60%;
+        }
+
+        .SearchQuery {
+            display: none;
         }
         
         #SelectQuery {
@@ -199,7 +204,7 @@
             <div id="userInput">
                 <input type="text" id="SearchQuery" placeholder="Type / Search Your Question here" onkeyup="filterQueries()"
                     onblur="hideDropdown()">
-                <button id="sendButton">send</button>
+                <button id="sendButton" class="sendButton">send</button>
             </div>
             <div class="Container-select">
                 <select id="SelectQuery" name="SelectQuery">
@@ -215,25 +220,39 @@
 
 <script>
 
-    function filterQueries() {
-        let input, filter, select, option, i, txtValue;
-        input = document.getElementById('SearchQuery');
-        filter = input.value.toUpperCase();
-        select = document.getElementById('SelectQuery');
-        option = select.getElementsByTagName('option');
+function filterQueries() {
+    let input, filter, select, option, i, txtValue, hasMatch;
+    input = document.getElementById('SearchQuery');
+    filter = input.value.toUpperCase();
+    select = document.getElementById('SelectQuery');
+    option = select.getElementsByTagName('option');
+    hasMatch = false;
 
-        // Show the dropdown when the search input is focused
-        select.size = 5;
+    // Show the dropdown when the search input is focused
+    select.size = 5;
 
-        for (i = 0; i < option.length; i++) {
-            txtValue = option[i].textContent || option[i].innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                option[i].style.display = '';
-            } else {
-                option[i].style.display = 'none';
-            }
+    for (i = 0; i < option.length; i++) {
+        txtValue = option[i].textContent || option[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            option[i].style.display = '';
+            hasMatch = true;
+        } else {
+            option[i].style.display = 'none';
         }
     }
+
+    // Show the send button if no match is found
+    const sendButton = document.getElementById('sendButton');
+    if (hasMatch || filter === '') {
+        sendButton.style.display = 'none';
+    } else {
+        sendButton.style.display = 'inline-block';
+    }
+}
+
+// Attach the filterQueries function to the onkeyup event of the SearchQuery input
+document.getElementById('SearchQuery').addEventListener('keyup', filterQueries);
+
 
     function hideDropdown() {
         let select = document.getElementById('SelectQuery');
