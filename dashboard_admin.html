@@ -20,6 +20,7 @@
         margin-top: 10px;
         margin-bottom: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
     }
 
     .container-request {
@@ -32,6 +33,7 @@
         display: inline-block;
         text-align: center;
         flex: 1;
+        cursor: pointer;
     }
 
     .container-resolved {
@@ -44,6 +46,7 @@
         display: inline-block;
         text-align: center;
         flex: 1;
+        cursor: pointer;
     }
 
     .container-student {
@@ -56,6 +59,7 @@
         display: inline-block;
         text-align: center;
         flex: 1;
+        cursor: pointer;
     }
 
     .container-exist {
@@ -68,6 +72,12 @@
         display: inline-block;
         text-align: center;
         flex: 1;
+        cursor: pointer;
+    }
+
+    .container-exist:hover, .container-request:hover,
+    .container-resolved:hover, .container-student:hover {
+        color:rgb(170, 165, 165)
     }
 
     .container-inline {
@@ -142,22 +152,22 @@
 
         <div class="container-1">
             <div class="container-inline">
-                <div class="container-request">
+                <div class="container-request" onclick="goTo('request')">
                     <h3>Query Request</h3>
                     <span style="font-size: 30px; font-weight: bold;" id="totalRequests"></span>
                 </div>
 
-                <div class="container-resolved">
+                <div class="container-resolved" onclick="goTo('resolved')">
                     <h3>Resolved Queries</h3>
                     <span style="font-size: 30px; font-weight: bold;" id="totalResolved"></span>
                 </div>
 
-                <div class="container-student">
+                <div class="container-student" onclick="goTo('student')" >
                     <h3>Student</h3>
                     <span style="font-size: 30px; font-weight: bold;" id="totalStudent"></span>
                 </div>
 
-                <div class="container-exist">
+                <div class="container-exist" onclick="goTo('exist')">
                     <h3>Existing Query</h3>
                     <span style="font-size: 30px; font-weight: bold;" id="totalExistingQuery"></span>
                 </div>
@@ -166,7 +176,7 @@
 
 
 
-        <div class="container-1">
+        <div class="container-1" onclick="goTo('analytic')">
             <div class="chart-container">
                 <canvas id="myChart"></canvas>
             </div>
@@ -176,6 +186,28 @@
 
     </div>
 </body>
+
+<script src="total_request.js"></script>
+
+<script>
+     function goTo(userType) {
+            if (userType === 'exist') {
+                window.location.href = 'add_query.html';
+            } else if (userType === 'student') {
+                window.location.href = 'tableData.html';
+            }
+            else if (userType === 'resolved') {
+                window.location.href = 'queryRequest.html';
+            }
+            else if (userType === 'request') {
+                window.location.href = 'queryRequest.html';
+            }
+            else if (userType === 'analytic') {
+                window.location.href = 'analytic.html';
+            }
+            
+        }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
