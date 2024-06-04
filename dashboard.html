@@ -462,7 +462,7 @@ document.getElementById('SearchQuery').addEventListener('keyup', filterQueries);
         const selectQuery = document.getElementById('SelectQuery');
 
         // Clear existing options
-        selectQuery.innerHTML = '<option value="" selected>Query</option>';
+        selectQuery.innerHTML = '<option value="" selected>Select Query</option>';
 
         // Populate the dropdown list with queries from Firebase
         snapshot.forEach((childSnapshot) => {
