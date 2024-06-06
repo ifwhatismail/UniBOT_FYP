@@ -125,13 +125,29 @@
         border-radius: 50%;
     }
 
+    .delete-button {
+        padding: 5px 10px;
+        background-color: #ff6347;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    .delete-button:hover {
+        background-color: #ff4838;
+        /* Darker red color on hover */
+    }
+
     @media screen and (max-width: 600px) {
         .content {
             margin-left: 120px;
             margin-top: -11px;
         }
 
-        .container-2, .container-3 {
+        .container-2,
+        .container-3 {
             font-size: 12px;
         }
 
@@ -139,9 +155,8 @@
             font-size: 15px;
             padding: 10px;
         }
-        
-    }
 
+    }
 </style>
 
 <body>
@@ -157,11 +172,16 @@
             <p><span id="userStudid-2"></span></p>
         </div>
         <hr class="hr-sidebar">
-        <a href="dashboard.html"><i class="fa fa-comments" aria-hidden="true"></i><label class="sidebar-title">ChatBOT</label></a>
-        <a href="user_profile.html"><i class="fa fa-address-card" aria-hidden="true"></i><label class="sidebar-title">Profile</label></a>
-        <a href="history.html"><i class="fa fa-history" aria-hidden="true"></i><label class="sidebar-title">chat history</label></a>
-        <a href="status.html"><i class="fa fa-envelope" aria-hidden="true"></i><label class="sidebar-title">Status</label></a>
-        <a id="signout"><i class="fa fa-sign-out" aria-hidden="true"></i><label class="sidebar-title">Log Out</label></a>
+        <a href="dashboard.html"><i class="fa fa-comments" aria-hidden="true"></i><label
+                class="sidebar-title">ChatBOT</label></a>
+        <a href="user_profile.html"><i class="fa fa-address-card" aria-hidden="true"></i><label
+                class="sidebar-title">Profile</label></a>
+        <a href="history.html"><i class="fa fa-history" aria-hidden="true"></i><label class="sidebar-title">chat
+                history</label></a>
+        <a href="status.html"><i class="fa fa-envelope" aria-hidden="true"></i><label
+                class="sidebar-title">Status</label></a>
+        <a id="signout"><i class="fa fa-sign-out" aria-hidden="true"></i><label class="sidebar-title">Log
+                Out</label></a>
 
     </div>
 
@@ -185,6 +205,7 @@
                         <th>Query</th>
                         <th>Status</th>
                         <th>Date</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
@@ -233,7 +254,7 @@
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-    import { getDatabase, set, ref, push, update, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+    import { getDatabase, set, ref, push, update, onValue, remove } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
     import { getStorage, ref as storageRef, getDownloadURL, uploadBytes } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -349,6 +370,18 @@
                     const queryCell = document.createElement("td");
                     const statusCell = document.createElement("td");
                     const dateCell = document.createElement("td");
+                    const actionCell = document.createElement("td");
+
+                    const deleteButton = document.createElement("button");
+                    deleteButton.textContent = "Delete";
+                    deleteButton.classList.add("delete-button");
+                    deleteButton.addEventListener("click", function () {
+                        // Call a function to delete the row from Firebase
+                        deleteQuery(queryKey);
+                    });
+
+                    // Append the delete button to the action cell
+                    actionCell.appendChild(deleteButton);
 
                     // Set cell values
                     nameCell.textContent = name;
@@ -363,6 +396,7 @@
                     newRow.appendChild(queryCell);
                     newRow.appendChild(statusCell);
                     newRow.appendChild(dateCell);
+                    newRow.appendChild(actionCell);
 
                     // Append the row to the table
                     document.getElementById("tableBody").appendChild(newRow);
@@ -370,6 +404,23 @@
             }
         }
     }
+
+    function deleteQuery(queryKey) {
+        // Get a reference to the query node in Firebase
+        if (confirm('Are you sure you want to delete this user?')) {
+            const queryRef = ref(database, 'users/' + auth.currentUser.uid + '/queries/' + queryKey);
+            // Remove the query from Firebase
+            remove(queryRef)
+                .then(() => {
+                    alert('Query request deleted successfully');
+                })
+                .catch((error) => {
+                    console.error('Error deleting query: ', error);
+                });
+        }
+
+    }
+
 
 
     function displayResolvedTable(name, queries) {
