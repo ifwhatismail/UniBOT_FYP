@@ -63,12 +63,15 @@
 
     #SelectQuery {
         padding: 15px;
+        margin-top: -20px;
         border-style: none;
         border-radius: 10px;
         width: 93%;
         text-align: center;
         background-color: #eff1f6;
         color: rgb(137, 134, 134);
+        display: none;
+        font-size: 15px;
     }
 
     .userText,
@@ -146,7 +149,7 @@
         }
         #SearchQuery {
             display: inline-block;
-            width: 60%;
+            width: 70%;
         }
 
         .SearchQuery {
@@ -183,7 +186,6 @@
                 class="sidebar-title">Status</label></a>
         <a id="signout"><i class="fa fa-sign-out" aria-hidden="true"></i><label class="sidebar-title">Log
                 Out</label></a>
-
     </div>
 
     <div class="content">
@@ -191,7 +193,7 @@
         <div class="chatbot-container">
             <div class="bot-header">
                 <center>
-                    <img src="chat.png" style="width: 50px; display: inline-block; vertical-align: middle;">
+                    <img src="/img/chat.png" style="width: 50px; display: inline-block; vertical-align: middle;">
                     <p style="display: inline-block; vertical-align: middle; margin-left: 5px;">online</p>
                     <span class="online-dot"></span>
                 </center>
@@ -202,13 +204,13 @@
             </div>
         
             <div id="userInput">
-                <input type="text" id="SearchQuery" placeholder="Type / Search Your Question here" onkeyup="filterQueries()"
+                <input type="text" id="SearchQuery" placeholder="Type keyword / Search Your Question here" onkeyup="filterQueries()"
                     onblur="hideDropdown()">
                 <button id="sendButton" class="sendButton">send</button>
             </div>
             <div class="Container-select">
                 <select id="SelectQuery" name="SelectQuery">
-                    <option value="" selected>Select Query</option>
+                    <option value="" >Click here</option>
                 </select>
             </div>
         </div>
@@ -239,6 +241,17 @@ function filterQueries() {
         } else {
             option[i].style.display = 'none';
         }
+    }
+
+    // Show or hide the dropdown based on the matches
+    if (hasMatch) {
+        select.style.display = 'block';
+    } else {
+        select.style.display = 'none';
+    }
+
+    if (filter === ''){
+        select.style.display = 'none';
     }
 
     // Show the send button if no match is found
@@ -462,7 +475,7 @@ document.getElementById('SearchQuery').addEventListener('keyup', filterQueries);
         const selectQuery = document.getElementById('SelectQuery');
 
         // Clear existing options
-        selectQuery.innerHTML = '<option value="" selected>Select Query</option>';
+        selectQuery.innerHTML = '<option value="">Click here</option>';
 
         // Populate the dropdown list with queries from Firebase
         snapshot.forEach((childSnapshot) => {
