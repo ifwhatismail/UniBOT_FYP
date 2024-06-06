@@ -307,6 +307,9 @@
     }
 </script>
 
+
+
+
 <script type="module">
 
     // Import the functions you need from the SDKs you need
@@ -404,20 +407,31 @@
         return new Date(dateStr).getTime();
     }
 
-    // Function to sort the table rows by date
-    function sortTableByDateDesc(tableId) {
+    function sortTableByDateDesc(tableId, status) {
         const table = document.getElementById(tableId);
         const rows = Array.from(table.rows).slice(1); // Exclude the header row
 
         rows.sort((rowA, rowB) => {
             const dateA = convertToTimestamp(rowA.cells[5].textContent); // Assuming the date is in the 6th cell
             const dateB = convertToTimestamp(rowB.cells[5].textContent);
-            return dateB - dateA; // Sort in descending order
+
+            // Sort unresolved queries with status 'Pending' and resolved queries with status 'Solved'
+            if (status === 'Pending') {
+                return rowA.cells[6].textContent === 'Pending' ? dateB - dateA : 1;
+            } else if (status === 'Solved') {
+                return rowA.cells[6].textContent === 'Solved' ? dateB - dateA : 1;
+            }
+
+            return dateB - dateA; // Sort in descending order by default
         });
 
         // Append the sorted rows back to the table
-        rows.forEach(row => table.appendChild(row));
+        rows.forEach((row, index) => {
+            row.cells[0].textContent = index + 1; // Update the number column
+            table.appendChild(row);
+        });
     }
+
 
     // Updated fetchAllData function
     function fetchAllData() {
@@ -504,9 +518,8 @@
                     }
                 });
 
-                // Sort the tables by date in descending order
-                sortTableByDateDesc('infoTable');
-                sortTableByDateDesc('infoTableResolved');
+                sortTableByDateDesc('infoTable', 'Pending');
+                sortTableByDateDesc('infoTableResolved', 'Solved');
 
                 // Display total number of query requests on the unresolved table
                 const totalRequestsSpan = document.getElementById('totalRequests');
@@ -515,8 +528,8 @@
         });
     }
 
-
     function sendAnswer(answer, studname, studid, email, query) {
+
         // Get the selected user's UID based on their name
         const usersRef = ref(database, 'users/');
         onValue(usersRef, (snapshot) => {
@@ -565,6 +578,9 @@
     }
 
 
+
+
+
     // Event listener for the "Answer" button
     const sendButton = document.getElementById('send');
     sendButton.addEventListener('click', () => {
@@ -576,6 +592,9 @@
 
         // Call the function to send the answer to Firebase
         sendAnswer(answer, studname, studid, email, query);
+
+        // Clear the answer input
+        document.getElementById('answer').value = '';
     });
 
 
