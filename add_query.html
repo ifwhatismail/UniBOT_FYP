@@ -176,6 +176,8 @@
                     <option value="Academic">Academic</option>
                     <option value="Building Information">Building Information</option>
                     <option value="Finance">Finance</option>
+                     <option value="Mara">Mara</option>
+                     <option value="Others">Others</option>
                 </select>
                 <br><br>
 
@@ -185,7 +187,7 @@
                 <label for="NewResponse"><b>New Response</b></label><br>
                 <input type="text" placeholder="Enter new response" name="Response" id="NewResponse" required>
 
-                <input type="submit" value="Add">
+                <input id="Add" type="submit" value="Add">
             </form>
             <button class="btnUpdate" id="update">Update</button>
             <button class="btnCancel" id="cancel" onclick="cancel()">Cancel</button>
@@ -219,6 +221,7 @@
     function cancel() {
         document.getElementById("update").style.display = "none";
         document.getElementById("cancel").style.display = "none";
+         document.getElementById("Add").style.display = "block";
         document.getElementById('queryForm').reset();
     }
 </script>
@@ -388,6 +391,7 @@
     function editQuery(key) {
         document.getElementById("update").style.display = "block";
         document.getElementById("cancel").style.display = "block";
+         document.getElementById("Add").style.display = "none";
 
         // Retrieve the query data using the key
         const queryRef = ref(database, `chatbot/${key}`);
@@ -422,6 +426,7 @@
                 document.getElementById('queryForm').reset();
                 document.getElementById("update").style.display = "none";
                 document.getElementById("cancel").style.display = "none";
+                 document.getElementById("Add").style.display = "block";
             }).catch((error) => {
                 alert('Error updating query: ' + error.message);
             });
