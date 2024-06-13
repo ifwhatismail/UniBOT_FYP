@@ -152,28 +152,27 @@
             admin_email: newAdminEmail,
             admin_phone: newAdminPhone,
             admin_gender: newAdminGender,
+        }).then(() => {
+            const file = profilePictureInput.files[0];
+            if (file) {
+                uploadBytes(storageRef(storage, auth.currentUser.email), file)
+                    .then((snapshot) => {
+                        console.log('Uploaded file!');
+                        alert('Update successful');
+                        window.location.href = "profile_admin.html";
+                    })
+                    .catch((error) => {
+                        console.error('Error uploading file:', error);
+                        alert('Update failed');
+                    });
+            } else {
+                alert('Update successful');
+                window.location.href = "profile_admin.html";
+            }
+        }).catch((error) => {
+            console.error('Error updating user data:', error);
+            alert('Update failed');
         });
-
-        // Upload file into Firebase Storage
-        const file = profilePictureInput.files[0];
-        if (file) {
-            uploadBytes(storageRef(storage, auth.currentUser.email), file)
-                .then((snapshot) => {
-                    console.log('Uploaded file!');
-                    alert('Update successful');
-                    window.location.href = "profile_admin.html";
-                })
-                .catch((error) => {
-                    console.error('Error uploading file:', error);
-                    alert('Update failed');
-                });
-        }
-
-        alert('Update sucessful');
-        window.location.href = "profile_admin.html";
-
-        // Redirect to the next page after successful login
-        //window.location.href = "profile_admin.html";
     });
 
 </script>
