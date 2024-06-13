@@ -26,6 +26,28 @@
         overflow: auto;
     }
 
+    #profilePicture {
+        display: none;
+    }
+
+    .update-btn {
+        margin-top: 5px;
+        display: none;
+    }
+
+    .update-btn:hover{
+        background-color: rgb(154, 155, 157);
+    }
+
+    .cancel-btn {
+        display: none;
+        margin-top: 5px;
+    }
+
+    .cancel-btn:hover{
+        background-color: rgb(154, 155, 157);
+    }
+
     @media screen and (max-width: 600px) {
         .content {
             margin-left: 120px;
@@ -69,7 +91,13 @@
         <!--Student info-->
         <div class="container-profile">
             <h2 style="text-align: center;">Student Information</h2>
-            <center><img class="profile-img" alt="profile" id="profilePic"></center>
+            <center>
+                <img class="profile-img" alt="profile" id="profilePic"><br>
+                <button class="edit-btn" id="editbtn">Change Picture</button>
+                <input type="file" accept="image/*" name="profilePicture" id="profilePicture">
+                <button class="update-btn" id="updatebtn">Update</button>
+                <button class="cancel-btn" id="cancelbtn" onclick="cancel()">Cancel</button>
+            </center>
             <br>
             <hr>
 
@@ -84,11 +112,19 @@
 
             <hr>
 
-            <button class="edit-btn"><a href="edit_profile.html">edit</a></button>
         </div>
     </div>
 
 </body>
+
+<script>
+    function cancel(){
+        document.getElementById("profilePicture").style.display = "none";
+        document.getElementById("updatebtn").style.display = "none";
+        document.getElementById("cancelbtn").style.display = "none";
+        document.getElementById("editbtn").style.display = "block";    
+    }
+</script>
 
 <script type="module">
     // Import the functions you need from the SDKs you need
@@ -123,6 +159,8 @@
     const userPhoneSpan = document.getElementById('phone');
     const userGenderSpan = document.getElementById('userGender');
     const lastLoginSpan = document.getElementById('lastLogin');
+    const profilePicture = document.getElementById('profilePicture');
+
 
     //sidebar
     const userNameSpan2 = document.getElementById('userName-2');
@@ -210,6 +248,36 @@
         };
         return new Date().toLocaleString('en-MY', options);
     }
+
+    editbtn.addEventListener('click', () => {
+
+        document.getElementById("profilePicture").style.display = "block";
+        document.getElementById("updatebtn").style.display = "block";
+        document.getElementById("cancelbtn").style.display = "block";
+        document.getElementById("editbtn").style.display = "none";
+
+        updatebtn.addEventListener('click', () => {
+            const file = profilePicture.files[0];
+            if (file) {
+                uploadBytes(storageRef(storage, auth.currentUser.email), file)
+                    .then((snapshot) => {
+                        console.log('Uploaded file!');
+                        alert('Update successful');
+                        window.location.href = "user_profile.html";
+                    })
+                    .catch((error) => {
+                        console.error('Error uploading file:', error);
+                        alert('Update failed');
+                    });
+            } else {
+                alert('Update successful');
+                window.location.href = "user_profile.html";
+            }
+        })
+
+    })
+
+    
 
 </script>
 
