@@ -157,7 +157,7 @@
     <script>
         function goToLogin(userType) {
             if (userType === 'student') {
-                window.location.href = 'student/Login.html';
+                window.location.href = 'Login.html';
             } else if (userType === 'admin') {
                document.getElementById("Pin").style.display = "block";
             }
@@ -169,7 +169,7 @@
 
             if (pin == "2903") {
                 alert("Pin is correct")
-                window.location.href = 'admin/Login_admin.html';
+                window.location.href = 'Login_admin.html';
             }
             else if (pin == ""){
                 document.getElementById("Pin-Number").value = '';
