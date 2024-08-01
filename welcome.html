@@ -11,7 +11,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
     body {
-        background-image: url('bg.jpg');
+        background-image: url('img/bg.jpg');
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
@@ -52,6 +52,7 @@
         background-color: #2C4E80;
         color: white;
         cursor: pointer;
+        font-size: 15px;
     }
 
     .btn-admin {
@@ -64,6 +65,7 @@
         background-color: #655DBB;
         color: white;
         cursor: pointer;
+        font-size: 15px;
     }
 
     .btn-admin:hover, .btn-student:hover {
@@ -134,7 +136,7 @@
 <body>
 
     <div class="container">
-        <img src="logo-2.png">
+        <img src="/img/logo-2.png">
         <h2>Welcome to</h2>
         <h1>UniBOT</h1>
         <h2>UNIKL MIIT Customer Service Chatbot System</h2>
@@ -144,6 +146,7 @@
     <div class="btn">
         <button class="btn-student" onclick="goToLogin('student')">Student</button>
         <button class="btn-admin" onclick="goToLogin('admin')">Admin</button>
+        <button class="btn-admin" onclick="goToLogin('guest')">Guest</button>
     </div>
 
     <center>
@@ -160,6 +163,9 @@
                 window.location.href = 'Login.html';
             } else if (userType === 'admin') {
                document.getElementById("Pin").style.display = "block";
+            }
+            else if (userType === 'guest') {
+                window.location.href = 'dashboard.html'
             }
         }
 
